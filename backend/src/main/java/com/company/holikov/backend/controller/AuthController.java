@@ -1,6 +1,7 @@
 package com.company.holikov.backend.controller;
 
 import com.company.holikov.backend.config.jwt.JwtTokenProvider;
+import com.company.holikov.backend.model.Role;
 import com.company.holikov.backend.model.Student;
 import com.company.holikov.backend.pojo.JwtResponse;
 import com.company.holikov.backend.pojo.LoginRequest;
@@ -73,10 +74,10 @@ public class AuthController {
     @PostMapping("/signup")
     public ResponseEntity<?> registerUser(@RequestBody SignupRequest signupRequest) {
 
-        if (studentRepository.existsByLogin(signupRequest.getUsername())) {
+        if (studentRepository.existsByLogin(signupRequest.getLogin())) {
             return ResponseEntity
                     .badRequest()
-                    .body(new MessageResponse("Error: Username is exist"));
+                    .body(new MessageResponse("Error: Login is exist"));
         }
 
         if (studentRepository.existsByEmail(signupRequest.getEmail())) {
@@ -85,14 +86,16 @@ public class AuthController {
                     .body(new MessageResponse("Error: Email is exist"));
         }
 
+        Role role = roleRepository.findByName(signupRequest.getRole().toUpperCase());
         Student student = new Student(
-                signupRequest.getUsername(),
+                signupRequest.getLogin(),
                 passwordEncoder.encode(signupRequest.getPassword()),
                 signupRequest.getFirstName(),
                 signupRequest.getLastName(),
                 signupRequest.getEmail(),
-                roleRepository.findByName(signupRequest.getRole().getName())
+                role
         );
+
         studentService.create(student);
 
 

@@ -2,25 +2,23 @@ package com.company.holikov.backend.pojo;
 
 import com.company.holikov.backend.model.Role;
 
-import java.util.Set;
-
 public class SignupRequest {
 
-    private String username;
+    private String login;
     private String password;
 
     private String firstName;
 
     private String lastName;
     private String email;
-    private Role role;
+    private String role;
 
-    public String getUsername() {
-        return username;
+    public String getLogin() {
+        return login;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setLogin(String login) {
+        this.login = login;
     }
 
     public String getEmail() {
@@ -31,11 +29,11 @@ public class SignupRequest {
         this.email = email;
     }
 
-    public Role getRole() {
+    public String getRole() {
         return role;
     }
 
-    public void setRole(Role role) {
+    public void setRole(String role) {
         this.role = role;
     }
 

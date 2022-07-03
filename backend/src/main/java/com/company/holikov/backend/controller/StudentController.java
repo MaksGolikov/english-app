@@ -22,14 +22,6 @@ public class StudentController {
     @Autowired
     private StudentRepository studentRepository;
 
-//    @GetMapping("/user")
-//    //@PreAuthorize("hasRole('USER')")
-//    @PreAuthorize("hasAuthority('USER')")
-//    public String userAccess() {
-//        System.out.println("+++");
-//        return "user API";
-//    }
-
     @GetMapping(value = "/user", produces = MediaType.APPLICATION_JSON_VALUE)
 //    //@PreAuthorize("hasRole('USER')")
     @PreAuthorize("hasAuthority('USER')")
