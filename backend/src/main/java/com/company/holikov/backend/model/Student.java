@@ -4,7 +4,10 @@ package com.company.holikov.backend.model;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import java.math.BigDecimal;
+import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity(name = "student")
 @Table(name = "student")
@@ -38,17 +41,27 @@ public class Student {
     // @Access(AccessType.PROPERTY)
     private Role role;
 
-    public Student(String login, String password, String firstName, String lastName, String email, Role role) {
+    @Column(name = "progress")
+    private BigDecimal progress;
+
+    public Student(String login, String password, String firstName, String lastName, String email, Role role, BigDecimal progress) {
         this.login = login;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.role = new Role(role.getId());
+        this.progress = progress;
     }
 
-    public Student() {
+    public Student() {}
 
+    public BigDecimal getProgress() {
+        return progress;
+    }
+
+    public void setProgress(BigDecimal progress) {
+        this.progress = progress;
     }
 
     public Role getRole() {
@@ -105,6 +118,20 @@ public class Student {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id=" + id +
+                ", login='" + login + '\'' +
+                ", password='" + password + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", role=" + role +
+                ", progress=" + progress +
+                '}';
     }
 
     @Override

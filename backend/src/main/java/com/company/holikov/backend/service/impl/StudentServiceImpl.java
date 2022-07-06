@@ -25,15 +25,8 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public void update(Student student) {
-        Student student1 = new Student(
-                student.getLogin(),
-                student.getPassword(),
-                student.getFirstName(),
-                student.getLastName(),
-                student.getEmail(),
-                student.getRole()
-        );
-        studentRepository.save(student1);
+        System.out.println(student);
+        studentRepository.save(student);
     }
 
     @Override

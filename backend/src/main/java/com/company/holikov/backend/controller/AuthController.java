@@ -22,11 +22,12 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/auth")
 @CrossOrigin(origins = "http://localhost:4200")
 public class AuthController {
 
@@ -46,7 +47,8 @@ public class AuthController {
     private StudentService studentService;
 
     @Autowired
-    PasswordEncoder passwordEncoder;
+    private PasswordEncoder passwordEncoder;
+
 
     @PostMapping(value = "/signin", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> authenticate(@RequestBody LoginRequest loginRequest) {
@@ -93,7 +95,8 @@ public class AuthController {
                 signupRequest.getFirstName(),
                 signupRequest.getLastName(),
                 signupRequest.getEmail(),
-                role
+                role,
+                new BigDecimal(0)
         );
 
         studentService.create(student);

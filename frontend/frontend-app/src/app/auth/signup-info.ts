@@ -5,6 +5,7 @@ export class SignUpInfo {
   firstName : string;
   lastName : string;
   password: string;
+  progress: number;
 
   constructor(login: string, email: string, password: string, firstName : string, lastName: string) {
     this.login = login;
@@ -13,5 +14,6 @@ export class SignUpInfo {
     this.firstName = firstName;
     this.lastName = lastName;
     this.role = 'user';
+    this.progress = 0;
   }
 }

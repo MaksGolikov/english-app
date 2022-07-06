@@ -13,6 +13,7 @@ public class SignupRequest {
     private String email;
     private String role;
 
+
     public String getLogin() {
         return login;
     }
