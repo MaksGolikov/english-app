@@ -1,11 +1,12 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 
-import { RegisterComponent } from './register/register.component';
-import { LoginComponent } from './login/login.component';
-import { HomeComponent } from './home/home.component';
-import { UserComponent } from './user/user.component';
-import { AdminComponent } from './admin/admin.component';
+import {RegisterComponent} from './register/register.component';
+import {LoginComponent} from './login/login.component';
+import {HomeComponent} from './home/home.component';
+import {UserComponent} from './user/user.component';
+import {TheoryComponent} from "./theory/theory.component";
+import {TestingComponent} from "./testing/testing.component";
 
 const routes: Routes = [
   {
@@ -13,12 +14,8 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'api/user',
+    path: 'api/statistic',
     component: UserComponent
-  },
-  {
-    path: 'api/admin',
-    component: AdminComponent
   },
   {
     path: 'auth/login',
@@ -29,9 +26,12 @@ const routes: Routes = [
     component: RegisterComponent
   },
   {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
+    path: 'home/theory',
+    component: TheoryComponent
+  },
+  {
+    path: 'home/theory/test',
+    component: TestingComponent
   }
 ];
 

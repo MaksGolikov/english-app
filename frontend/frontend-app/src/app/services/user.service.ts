@@ -7,16 +7,11 @@ import { Observable } from 'rxjs';
 })
 export class UserService {
 
-  private userUrl = 'http://localhost:8080/api/user';
-  private adminUrl = 'http://localhost:8080/api/admin';
+  private statisticUrl = 'http://localhost:8080/api/statistic';
 
   constructor(private http: HttpClient) { }
 
-  getUserBoard(): Observable<string> {
-    return this.http.get(this.userUrl, { responseType: 'text' });
-  }
-
-  getAdminBoard(): Observable<string> {
-    return this.http.get(this.adminUrl, { responseType: 'text' });
+  getUserStatistic(): Observable<any> {
+    return this.http.get(this.statisticUrl, { responseType: 'json' });
   }
 }

@@ -1,0 +1,226 @@
+
+<div *ngFor='let elem of list'>
+  <p>{{ elem }}</p>
+</div>
+<form name="form" (ngSubmit)="onSubmit()" #f="ngForm" novalidate>
+
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">Questions</th>
+      <th scope="col">Student Answer</th>
+      <th scope="col">Right Answer</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>
+        <div class="form-group">
+          <label for="test1"></label>
+          <input id="test1" type="text" class="form-control" name="test1" [(ngModel)]="form.test1" #test1="ngModel"
+                 required/>
+        </div>
+      </td>
+
+        <td id="1">
+        </td>
+
+
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>
+        <div class="form-group">
+          <label for="test2"></label>
+          <input id="test2" type="text" class="form-control" name="test" [(ngModel)]="form.test2" #test2="ngModel"
+                 required/>
+        </div>
+      </td>
+
+      <td id="2">
+      </td>
+
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>
+        <div class="form-group">
+          <label for="test3"></label>
+          <input id="test3" type="text" class="form-control" name="test" [(ngModel)]="form.test3" #test3="ngModel"
+                 required/>
+        </div>
+      </td>
+
+      <td id="3"></td>
+
+    </tr>
+    <tr>
+      <th scope="row">4</th>
+      <td>
+        <div class="form-group">
+          <label for="test4"></label>
+          <input id="test4" type="text" class="form-control" name="test" [(ngModel)]="form.test4" #test4="ngModel"
+                 required/>
+        </div>
+      </td>
+
+      <td id="4"></td>
+
+    </tr>
+    <tr>
+      <th scope="row">5</th>
+      <td>
+        <div class="form-group">
+          <label for="test5"></label>
+          <input id="test5" type="text" class="form-control" name="test" [(ngModel)]="form.test5" #test5="ngModel"
+                 required/>
+        </div>
+      </td>
+
+      <td id="5"></td>
+
+    </tr>
+    <tr>
+      <th scope="row">6</th>
+      <td>
+        <div class="form-group">
+          <label for="test6"></label>
+          <input id="test6" type="text" class="form-control" name="test" [(ngModel)]="form.test6" #test6="ngModel"
+                 required/>
+        </div>
+      </td>
+
+      <td id="6"></td>
+
+    </tr>
+    <tr>
+      <th scope="row">7</th>
+      <td>
+        <div class="form-group">
+          <label for="test7"></label>
+          <input id="test7" type="text" class="form-control" name="test" [(ngModel)]="form.test7" #test7="ngModel"
+                 required/>
+        </div>
+      </td>
+
+      <td id="7"></td>
+
+    </tr>
+    <tr>
+      <th scope="row">8</th>
+      <td>
+        <div class="form-group">
+          <label for="test8"></label>
+          <input id="test8" type="text" class="form-control" name="test" [(ngModel)]="form.test8" #test8="ngModel"
+                 required/>
+        </div>
+      </td>
+
+      <td id="8"></td>
+
+    </tr>
+    <tr>
+      <th scope="row">9</th>
+      <td>
+        <div class="form-group">
+          <label for="test9"></label>
+          <input id="test9" type="text" class="form-control" name="test" [(ngModel)]="form.test9" #test9="ngModel"
+                 required/>
+        </div>
+      </td>
+
+      <td id="9"></td>
+
+    </tr>
+    <tr>
+      <th scope="row">10</th>
+      <td>
+        <div class="form-group">
+          <label for="test10"></label>
+          <input id="test10" type="text" class="form-control" name="test" [(ngModel)]="form.test10" #test10="ngModel"
+                 required/>
+        </div>
+      </td>
+
+      <td id="10"></td>
+
+    </tr>
+
+    </tbody>
+  </table>
+  <div class="form-group">
+    <button class="btn btn-primary">Submit</button>
+  </div>
+</form>
+
+
+<!--<div class="row col-sm-6" style="max-width:350px;">
+  <form name="form" (ngSubmit)="onSubmit()" #f="ngForm" novalidate>
+
+    <div class="form-group">
+      <label for="test1">1</label>
+      <input id="test1" type="text" class="form-control" name="test1" [(ngModel)]="form.test1" #test1="ngModel"
+             required/>
+    </div>
+
+    <div class="form-group">
+      <label for="test2">2</label>
+      <input id="test2" type="text" class="form-control" name="test" [(ngModel)]="form.test2" #test2="ngModel"
+             required/>
+    </div>
+
+    <div class="form-group">
+      <label for="test3">3</label>
+      <input id="test3" type="text" class="form-control" name="test" [(ngModel)]="form.test3" #test3="ngModel"
+             required/>
+    </div>
+
+    <div class="form-group">
+      <label for="test4">4</label>
+      <input id="test4" type="text" class="form-control" name="test" [(ngModel)]="form.test4" #test4="ngModel"
+             required/>
+    </div>
+
+    <div class="form-group">
+      <label for="test5">5</label>
+      <input id="test5" type="text" class="form-control" name="test" [(ngModel)]="form.test5" #test5="ngModel"
+             required/>
+    </div>
+
+    <div class="form-group">
+      <label for="test6">6</label>
+      <input id="test6" type="text" class="form-control" name="test" [(ngModel)]="form.test6" #test6="ngModel"
+             required/>
+    </div>
+
+    <div class="form-group">
+      <label for="test7">7</label>
+      <input id="test7" type="text" class="form-control" name="test" [(ngModel)]="form.test7" #test7="ngModel"
+             required/>
+    </div>
+
+    <div class="form-group">
+      <label for="test8">8</label>
+      <input id="test8" type="text" class="form-control" name="test" [(ngModel)]="form.test8" #test8="ngModel"
+             required/>
+    </div>
+
+    <div class="form-group">
+      <label for="test9">9</label>
+      <input id="test9" type="text" class="form-control" name="test" [(ngModel)]="form.test9" #test9="ngModel"
+             required/>
+    </div>
+
+    <div class="form-group">
+      <label for="test10">10</label>
+      <input id="test10" type="text" class="form-control" name="test" [(ngModel)]="form.test10" #test10="ngModel"
+             required/>
+    </div>
+    <div class="form-group">
+      <button class="btn btn-primary">Submit</button>
+    </div>
+  </form>
+</div>-->
+
+{{errorMessage}}

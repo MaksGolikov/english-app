@@ -17,7 +17,7 @@ export class UserComponent implements OnInit {
   ngOnInit() {
     console.log('on init');
     console.log(this.board);
-    this.userService.getUserBoard().subscribe(
+    this.userService.getUserStatistic().subscribe(
       data => {
         this.board = data;
         console.log(this.board);

@@ -5,16 +5,20 @@
     </div>-->
     <ul class="nav navbar-nav" routerLinkActive="active">
       <li class="nav-item"><a class="nav-link" routerLink="home">Home</a></li>
-      <li *ngIf="authority === 'user'" class="nav-item">
-        <a class="nav-link" routerLink="/api/user">User Board</a>
-      </li>
+
       <li *ngIf="authority === 'admin'" class="nav-item">
         <a class="nav-link" routerLink="/api/admin">Admin Board</a>
       </li>
+
+      <li *ngIf="authority === 'admin' || authority==='user'">
+        <a class="nav-link" (click)="logout()">Logout</a>
+      </li>
+
       <li *ngIf="!authority" class="nav-item">
         <a class="nav-link" routerLink="auth/login">Login</a>
       </li>
     </ul>
+
   </div>
 </nav>
 <div class="container">

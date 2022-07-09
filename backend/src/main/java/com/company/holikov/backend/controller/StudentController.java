@@ -1,11 +1,9 @@
 package com.company.holikov.backend.controller;
 
-import com.company.holikov.backend.model.RightAnswer;
 import com.company.holikov.backend.model.Sentence;
 import com.company.holikov.backend.model.Student;
 import com.company.holikov.backend.model.Tense;
 import com.company.holikov.backend.pojo.ResultTestRequest;
-import com.company.holikov.backend.repository.RightAnswerRepository;
 import com.company.holikov.backend.repository.SentenceRepository;
 import com.company.holikov.backend.repository.StudentRepository;
 import com.company.holikov.backend.repository.TenseRepository;
@@ -16,7 +14,9 @@ import org.springframework.http.MediaType;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api")
@@ -45,7 +45,7 @@ public class StudentController {
         return studentRepository.findByLogin("test");
     }
 
-    @GetMapping(value = "/theory", produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "/theory", produces = MediaType.APPLICATION_JSON_VALUE)
     @PreAuthorize("hasAuthority('USER')")
     public String getTheory(@RequestBody Tense tense){
         System.out.println(tense);
@@ -53,7 +53,7 @@ public class StudentController {
         return byTense.getTheory();
     }
 
-    @GetMapping(value = "/testing", produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "/testing", produces = MediaType.APPLICATION_JSON_VALUE)
     @PreAuthorize("hasAuthority('USER')")
     public Map<Long, String> getSentences(@RequestBody Tense tense){
         List<Sentence> allById = sentenceRepository.findAllByTense(tenseRepository.findByTense(tense.getTense()));
@@ -70,6 +70,5 @@ public class StudentController {
     public Map<Integer,String> checkResult(@RequestBody ResultTestRequest resultTestRequest){
         return sentenceService.checkRightAnswer(resultTestRequest);
     }
-
 
 }

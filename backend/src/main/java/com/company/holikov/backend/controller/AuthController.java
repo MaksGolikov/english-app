@@ -22,7 +22,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
-import java.math.BigDecimal;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -95,8 +94,7 @@ public class AuthController {
                 signupRequest.getFirstName(),
                 signupRequest.getLastName(),
                 signupRequest.getEmail(),
-                role,
-                new BigDecimal(0)
+                role
         );
 
         studentService.create(student);

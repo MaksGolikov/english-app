@@ -15,7 +15,7 @@ export class AdminComponent implements OnInit {
   constructor(private userService: UserService) { }
 
   ngOnInit() {
-    this.userService.getAdminBoard().subscribe(
+    this.userService.getUserStatistic().subscribe(
       data => {
         this.board = data;
       },

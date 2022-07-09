@@ -4,10 +4,7 @@ package com.company.holikov.backend.model;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-import java.math.BigDecimal;
-import java.util.List;
 import java.util.Objects;
-import java.util.Set;
 
 @Entity(name = "student")
 @Table(name = "student")
@@ -41,28 +38,17 @@ public class Student {
     // @Access(AccessType.PROPERTY)
     private Role role;
 
-    @Column(name = "progress")
-    private BigDecimal progress;
 
-    public Student(String login, String password, String firstName, String lastName, String email, Role role, BigDecimal progress) {
+    public Student(String login, String password, String firstName, String lastName, String email, Role role) {
         this.login = login;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.role = new Role(role.getId());
-        this.progress = progress;
     }
 
     public Student() {}
-
-    public BigDecimal getProgress() {
-        return progress;
-    }
-
-    public void setProgress(BigDecimal progress) {
-        this.progress = progress;
-    }
 
     public Role getRole() {
         return role;
@@ -130,7 +116,6 @@ public class Student {
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
                 ", role=" + role +
-                ", progress=" + progress +
                 '}';
     }
 

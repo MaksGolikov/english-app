@@ -1,0 +1,46 @@
+
+
+<ng-template [ngIf]="isNull" [ngIfElse]="isNotNull">
+  <div>
+    <h1>Theory</h1>
+  </div>
+</ng-template>
+
+<ng-template #isNotNull>
+  <div>
+    <h1>Theory of {{tenseInfo.tense}}</h1>
+  </div>
+</ng-template>
+
+<div *ngIf="tenseInfo.tense!=null">
+
+</div>
+
+<div class="container">
+  <div class="btn-group" role="group" aria-label="Basic example">
+    <button class="btn btn-primary" (click)="setTense('PresentSimple')">Present Simple</button>
+
+
+    <button class="btn btn-primary" (click)="setTense('PresentContinuous')">Present Continuous</button>
+
+
+    <button class="btn btn-primary" (click)="setTense('PresentPerfect')">Present Perfect</button>
+
+    <button class="btn btn-primary" (click)="setTense('PresentPerfectContinuous')">Present Perfect
+      Continuous
+    </button>
+
+  </div>
+</div>
+
+<div class="container">
+  <h5 [innerHTML]="html">
+    {{errorMessage}}
+  </h5>
+
+  <div *ngIf="tenseInfo.tense!=null">
+    <button  class="btn btn-primary" routerLink="test" >Go to test of {{tenseInfo.tense}}</button>
+  </div>
+
+</div>
+
